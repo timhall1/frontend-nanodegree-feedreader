@@ -92,8 +92,7 @@ $(function() {
     beforeEach(function(done) {
       loadFeed(0, function() {
         firstFeed = document.querySelector(".feed").innerHTML;
-        
-        loadFeed(1, function() {  // Run loadFeed a second time, then compare contents to firstFeed in 
+        loadFeed(1, function() { // Run loadFeed a second time, then compare contents to firstFeed in 
           done();
         });
       });
@@ -103,7 +102,7 @@ $(function() {
      * Remember, loadFeed() is asynchronous.
      */
     it("is loaded by the loadFeed function", function(done) {
-      expect(firstFeed).not.toBe(document.querySelector(".feed").innerHTML);  // Make sure the first feed isn't equal to the 2nd feed
+      expect(firstFeed).not.toBe(document.querySelector(".feed").innerHTML); // Make sure the first feed isn't equal to the 2nd feed
       done();
     });
   });
