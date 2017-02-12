@@ -88,12 +88,12 @@ $(function() {
   });
   /* TODO: Write a new test suite named "New Feed Selection" */
   describe('New Feed Selection', function() {
-    // Asynchronous Support
-    var first;
+    var firstFeed = "";
     beforeEach(function(done) {
       loadFeed(0, function() {
-        first = document.querySelector(".feed").innerHTML;
-        loadFeed(1, function() {
+        firstFeed = document.querySelector(".feed").innerHTML;
+        
+        loadFeed(1, function() {  // Run loadFeed a second time, then compare contents to firstFeed in 
           done();
         });
       });
@@ -102,8 +102,8 @@ $(function() {
      * by the loadFeed function that the content actually changes.
      * Remember, loadFeed() is asynchronous.
      */
-    it("is loaded by the loadFeed function and the content actually changes", function(done) {
-      expect(first).not.toBe(document.querySelector(".feed").innerHTML);
+    it("is loaded by the loadFeed function", function(done) {
+      expect(firstFeed).not.toBe(document.querySelector(".feed").innerHTML);  // Make sure the first feed isn't equal to the 2nd feed
       done();
     });
   });
